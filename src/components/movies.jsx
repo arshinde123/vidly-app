@@ -108,14 +108,14 @@ class Movies extends Component {
 
     return (
       <div className="row">
-        <div className="col-3">
+        <div className="col-sm-3">
           <ListGroup
             items={genres}
             selectedItem={selectedGenre}
             onItemSelect={this.handleGenreSelect}
           />
         </div>
-        <div className="col">
+        <div className="col-sm-9">
           <p>There are {totalCount} movies in the database.</p>
           {user && <Link to="/movies/new" className="btn btn-primary" style={{marginBottom: '20px'}}>New Movie</Link>}
           <SearchBox value={this.state.searchQuery} onChange={this.handleSearch} />
