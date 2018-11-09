@@ -15,7 +15,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <Link className="navbar-brand text-white pr-5" to="/" >Vidly </Link>
-                <button onClick={this.handleToggle} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button onClick={this.handleToggle} className="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={ navCollapsed ? "navbar-collapse" : "collapse navbar-collapse" } id="navbarNav">
