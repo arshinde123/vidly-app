@@ -18,15 +18,17 @@ class Movies extends Component {
     currentPage: 1,
     searchQuery: "",
     selectedGenre: null,
-    sortColumn: { path: "title", order: "asc" }
+    sortColumn: { path: "title", order: "asc" },
+    isLoading: false
   };
 
   async componentDidMount() {
+    this.setState({ isLoading: true });
     const { data } = await getGenres();
     const genres = [{ _id: "", name: "All" }, ...data];
 
     const { data: movies } = await getMovies();
-    this.setState({ movies, genres });
+    this.setState({ movies, genres, isLoading: false });
   }
 
     handleDelete = async movie => {
@@ -105,6 +107,8 @@ class Movies extends Component {
     const { user } = this.props;
 
     const { totalCount, data: movies } = this.getPagedData();
+
+    if(this.state.isLoading) return <div class="loading">Loading</div>;
 
     return (
       <div className="row">
