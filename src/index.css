@@ -26,6 +26,8 @@ code {
 }
 
 
+/* Loader css */
+
 /* Absolute Center Spinner */
 .loading {
   position: fixed;
@@ -145,3 +147,5 @@ code {
     transform: rotate(360deg);
   }
 }
+
+/* Loader css end */

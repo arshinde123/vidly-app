@@ -108,7 +108,7 @@ class Movies extends Component {
 
     const { totalCount, data: movies } = this.getPagedData();
 
-    if(this.state.isLoading) return <div class="loading">Loading</div>;
+    if (this.state.isLoading) return <div class="loading">Loading...</div>;
 
     return (
       <div className="row">

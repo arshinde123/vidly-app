@@ -9,7 +9,8 @@ class MovieForm extends Form {
     state = {
         data: { title: "", genreId: "", numberInStock: "", dailyRentalRate:"" },
         genres: [],
-        errors: {}
+        errors: {},
+        isLoading: false
     }
     schema = {
         _id: Joi.string(),
@@ -34,8 +35,10 @@ class MovieForm extends Form {
         }
     }
     async componentDidMount() {
+        this.setState({ isLoading: true });
         await this.populateGenres();
         await this.populateMovie();
+        this.setState({ isLoading: false });
     }
     mapToViewModel(movie){
         return {
@@ -52,6 +55,8 @@ class MovieForm extends Form {
         this.props.history.push('/movies');
     }
     render() { 
+        if (this.state.isLoading) return <div class="loading">Loading...</div>;
+
         return (
         <div>
             <h1>Movie Form</h1>
